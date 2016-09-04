@@ -1,0 +1,13 @@
+ARP eshtë një protokoll i cili bën që hostet të njohin MAC adresat e tjetrit kur i dinë IP.Në këtë shembull janë përdorur adresa MAC për ilustim sepse adresat e vërteta janë me 12 karaktere. Këtu kemi paketën e cila mban IP dhe MAC burim dhe destinacion,ndërsa IP destinacionit përfundimtar nuk është paraqitur.
+Hosti i parë dëshiron të dërgojë të komunikojë me adressën MAC me hostin tjetër. Ai ka IP 10.1.1.7/8 dhe MAC AAA. Ndërsa hostit tjetër i njeh vetëm IP.Paketa mbart IP e destinacionit gjithashtu 192.56.231.17/28 e cila do të rrijë tek paketa derisa ajo të arrijë në destinacion.
+Kështu ai dërgon një paketë tek dalja e zakonshme për në rrjet në mënyrë që ajo të arrijë tek hosti tjetër dhe ai t'i japë adresën MAC të vetën
+Routeri i pare (me MAC 'BBB'), meqë nuk e njh atë IP (192.56.231.17/28) e dërgon në daljen e zakonshme. Ai i vendos IP e vet (172.23.36.11/18) dhe IP e destincaionit të kësaj dalje (172.23.26.12/18)
+Ruteri tjetër merr këtë paketë dhe kontrollon në tabelat e tij nëse ka ndonjë pajisje me IP 192.56.231.17/28
+Ai shikon që e njeh një subnet të tillë dhe ka një IP të tille në listë, kështu e dërgon paketën tek hosti i duhur për t'a pyetur për MAC-un e tij. Kuptohet që paketa merr IP burim dhe destinacion të ri.
+Host me MAC 'BBB' merr paketën dhe shikon se ajo është për të.
+Ai i vendos tek burimi MAC adresën e tij 'BBB' dhe tek destinacioni 'AAA'.
+E dërgon këtë paketë tek ruteri i zakonshëm për ta dërguar tek 'AAA', në mënyrë të ngjashme bëhet tani rruga kthimit.
+Ruteri e merr paketën kontollon nëse ka në tabelë 10.1.1.7/8, dhe pasi shikon që nuk e ka e dërgon tek ruteri tjetër o zakonshëm
+Ruteri 'BBB' hap paketën dhe shikon që 10.1.1.7/8 e njeh.
+Kështu përgatit paketën për tja dërguar
+Hosti i parë (AAA) merr paketën me informacionin e duhur dhe shikon që hosti që donte të komunikonte me IP 192.56.231.17/28 ka MAC 'DDD'.
